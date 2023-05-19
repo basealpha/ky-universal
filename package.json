@@ -1,6 +1,6 @@
 {
 	"name": "ky-universal",
-	"version": "0.10.1",
+	"version": "0.11.0",
 	"description": "Use Ky in both Node.js and browsers",
 	"license": "MIT",
 	"repository": "sindresorhus/ky-universal",
@@ -16,7 +16,7 @@
 		"default": "./browser.js"
 	},
 	"engines": {
-		"node": ">=14"
+		"node": ">=14.16"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -60,27 +60,22 @@
 	],
 	"dependencies": {
 		"abort-controller": "^3.0.0",
-		"node-fetch": "^3.2.2"
+		"node-fetch": "^3.2.10"
 	},
 	"devDependencies": {
-		"ava": "^4.1.0",
-		"ky": "^0.30.0",
-		"tsd": "^0.19.1",
-		"xo": "^0.48.0"
+		"ava": "^4.3.3",
+		"ky": "^0.31.4",
+		"tsd": "^0.24.1",
+		"xo": "^0.52.4"
 	},
 	"peerDependencies": {
-		"ky": ">=0.26.0",
-		"web-streams-polyfill": ">=3.0.1"
+		"ky": ">=0.31.4",
+		"web-streams-polyfill": ">=3.2.1"
 	},
 	"peerDependenciesMeta": {
 		"web-streams-polyfill": {
 			"optional": true
 		}
 	},
-	"browser": "browser.js",
-	"xo": {
-		"rules": {
-			"unicorn/prefer-export-from": "off"
-		}
-	}
+	"browser": "browser.js"
 }
