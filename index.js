@@ -1,10 +1,11 @@
-import fetch, {Headers, Request, Response} from 'node-fetch';
-import AbortController from 'abort-controller';
+import fetch, { Headers, Request, Response } from "node-fetch";
+import AbortController from "abort-controller";
 
 const TEN_MEGABYTES = 1000 * 1000 * 10;
 
 if (!globalThis.fetch) {
-	globalThis.fetch = (url, options) => fetch(url, {highWaterMark: TEN_MEGABYTES, ...options});
+	globalThis.fetch = (url, options) =>
+		fetch(url, { highWaterMark: TEN_MEGABYTES, ...options });
 }
 
 if (!globalThis.Headers) {
@@ -30,7 +31,8 @@ if (!globalThis.ReadableStream) {
 	} catch {}
 }
 
-const {default: ky, HTTPError, TimeoutError} = await import('ky');
+import { default as ky, HTTPError, TimeoutError } from "ky";
+// const {default: ky, HTTPError, TimeoutError} = await import('ky');
 
 export default ky;
-export {HTTPError, TimeoutError};
+export { HTTPError, TimeoutError };
