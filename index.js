@@ -1,5 +1,6 @@
 import fetch, { Headers, Request, Response } from "node-fetch";
 import AbortController from "abort-controller";
+import ky from "ky";
 
 const TEN_MEGABYTES = 1000 * 1000 * 10;
 
@@ -33,32 +34,35 @@ if (!globalThis.ReadableStream) {
 
 // import { default as ky, HTTPError, TimeoutError } from "ky";
 // const {default: ky, HTTPError, TimeoutError} = await import('ky');
-let importPromise;
-async function importKy() {
-	if (!importPromise) {
-		importPromise = await import("ky");
-	}
-	return importPromise;
-}
+// let importPromise;
+// async function importKy() {
+// 	if (!importPromise) {
+// 		importPromise = await import("ky");
+// 	}
+// 	return importPromise;
+// }
 
-async function loadKy() {
-	const { default: ky } = await importKy();
-	return ky;
-}
+// async function loadKy() {
+// 	const { default: ky } = await importKy();
+// 	return ky;
+// }
 
-async function loadHTTPError() {
-	const { HTTPError } = await importKy();
-	return HTTPError;
-}
+// async function loadHTTPError() {
+// 	const { HTTPError } = await importKy();
+// 	return HTTPError;
+// }
 
-async function loadTimeoutError() {
-	const { TimeoutError } = await importKy();
-	return TimeoutError;
-}
+// async function loadTimeoutError() {
+// 	const { TimeoutError } = await importKy();
+// 	return TimeoutError;
+// }
 
-const { ky } = loadKy();
-const { HTTPError } = loadHTTPError();
-const { TimeoutError } = loadTimeoutError();
+// const { ky } = loadKy();
+// const { HTTPError } = loadHTTPError();
+// const { TimeoutError } = loadTimeoutError();
+
+// export default ky;
+// export { HTTPError, TimeoutError };
 
 export default ky;
-export { HTTPError, TimeoutError };
+export * from "ky";
