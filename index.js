@@ -31,8 +31,15 @@ if (!globalThis.ReadableStream) {
 	} catch {}
 }
 
-import { default as ky, HTTPError, TimeoutError } from "ky";
+// import { default as ky, HTTPError, TimeoutError } from "ky";
 // const {default: ky, HTTPError, TimeoutError} = await import('ky');
+
+async function loadKy() {
+	const { default: ky, HTTPError, TimeoutError } = await import("ky");
+	return { ky, HTTPError, TimeoutError };
+}
+
+const { ky, HTTPError, TimeoutError } = loadKy();
 
 export default ky;
 export { HTTPError, TimeoutError };
